@@ -18,6 +18,7 @@ inject_into_file "Gemfile", before: "group :development, :test do" do
     gem "rails-i18n", "~> 8.0"
     gem "sassc-rails", "~> 2.1"
     gem "simple_form", "~> 5.3"
+    gem "simple_form_bs5_file_input", "~> 0.1"
     gem "sprockets-rails", "~> 3.2"
     gem "terser", "~> 1.2"
 
@@ -63,10 +64,12 @@ file "app/assets/javascripts/application.js", <<~JS
   //= require bootstrap-sprockets
   //= require activestorage
   //= require rails-ujs
+  //= require simple_form_bs5_file_input
 JS
 
 file "app/assets/stylesheets/application.sass", <<~SASS
   @import 'bootstrap'
+  @import 'simple_form_bs5_file_input'
 SASS
 
 # Layout
