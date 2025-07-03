@@ -7,19 +7,19 @@ gsub_file ".ruby-version", "ruby-", ""
 inject_into_file "Gemfile", before: "group :development, :test do" do
   <<~RUBY
     gem "activestorage-scaleway-service", "~> 1.1"
-    gem "annotaterb", "~> 4.13"
+    gem "annotaterb", "~> 4.16"
     gem "autoprefixer-rails", "~> 10.4"
     gem "bootstrap", "~> 5.3"
     gem "bootstrap5-kaminari-views", "~> 0.0"
     gem "breadcrumbs_on_rails", "~> 4.1"
-    gem "good_job", "~> 4.5"
+    gem "good_job", "~> 4.11"
     gem "kamifusen", "~> 1.12"
     gem "kaminari", "~> 1.2"
     gem "rails-i18n", "~> 8.0"
     gem "sassc-rails", "~> 2.1"
     gem "simple_form", "~> 5.3"
     gem "simple_form_bs5_file_input", "~> 0.1"
-    gem "sprockets-rails", "~> 3.2"
+    gem "sprockets-rails", "~> 3.5"
     gem "terser", "~> 1.2"
 
   RUBY
