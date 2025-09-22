@@ -2,7 +2,7 @@
 
 ## Minimal app
 
-Bootstrap + Simple Form + Good Job + Active Storage (Scaleway)
+Bootstrap + Simple Form + Good Job + Active Storage (Scaleway) + Mails (via Brevo) + Bugsnag
 
 ```
 rails new \
@@ -21,7 +21,7 @@ rails new \
   --skip-kamal \
   --skip-solid \
   --skip-devcontainer \
-  --template=https://raw.githubusercontent.com/noesya/rails-templates/main/minimal.rb \
+  --template=https://raw.githubusercontent.com/noesya/rails-templates/refs/heads/main/minimal.rb \
   APP_NAME
 ```
 
