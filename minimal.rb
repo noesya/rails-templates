@@ -135,6 +135,7 @@ inject_into_file "config/environments/development.rb", before: /^end$/ do
 
   RUBY
 end
+gsub_file "config/environments/development.rb", "config.active_storage.service = :local", "config.active_storage.service = :scaleway"
 
 # Production Config
 ########################################
@@ -148,6 +149,7 @@ inject_into_file "config/environments/production.rb", before: /^end$/ do
   RUBY
 end
 gsub_file "config/environments/production.rb", "\"example.com\"", "ENV['SITE_URL']"
+gsub_file "config/environments/production.rb", "config.active_storage.service = :local", "config.active_storage.service = :scaleway"
 
 # ApplicationController
 ########################################
