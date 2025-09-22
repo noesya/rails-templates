@@ -7,7 +7,7 @@ gsub_file ".ruby-version", "ruby-", ""
 inject_into_file "Gemfile", before: "group :development, :test do" do
   <<~RUBY
     gem "activestorage-scaleway-service", "~> 1.1"
-    gem "annotaterb", "~> 4.16"
+    gem "annotaterb", "~> 4.19"
     gem "autoprefixer-rails", "~> 10.4"
     gem "bootstrap", "~> 5.3"
     gem "bootstrap5-kaminari-views", "~> 0.0"
@@ -316,32 +316,49 @@ TXT
 
 # Linters
 ########################################
-file ".codeclimate.yml", <<~YAML
-  version: "2"
-  plugins:
-    duplication:
-      enabled: true
-      config:
-        languages:
-          javascript:
-            mass_threshold: 50
-    sass-lint:
-      enabled: false
-      config:
-        config: .sass-lint.yml
-    eslint:
-      enabled: true
-      channel: "eslint-5"
-      config:
-        config: .eslintrc.yml
-  exclude_patterns:
-    - "node_modules/**"
-    - "vendor/**"
-    - "db/**"
-    - "config/**"
-    - "test/**"
-    - "docs/**"
+file ".qlty/configs/.yamllint.yaml", <<~YAML
+  rules:
+    document-start: disable
+    quoted-strings:
+      required: only-when-needed
+      extra-allowed: ["{|}"]
+    key-duplicates: {}
+    octal-values:
+      forbid-implicit-octal: true
 YAML
+file ".qlty/.gitignore", <<~TEXT
+  *
+  !configs
+  !configs/**
+  !hooks
+  !hooks/**
+  !qlty.toml
+  !.gitignore
+TEXT
+file ".qlty/qlty.toml", <<~TOML
+  config_version = "0"
+
+  exclude_patterns = [
+    "node_modules/**",
+    "vendor/**",
+    "db/**",
+    "config/**",
+    "docs/**",
+    "test/**"
+  ]
+
+  test_patterns = [
+    "test/**"
+  ]
+
+  [[source]]
+  name = "default"
+  default = true
+
+  [[plugin]]
+  name = "eslint"
+  version = "5.16.0"
+TOML
 file ".eslintrc.yml", <<~YAML
   env:
     browser: true
