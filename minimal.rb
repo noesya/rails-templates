@@ -294,7 +294,6 @@ file ".env.sample", <<~TXT
 
   # Not needed in development, but mandatory in production
   # JEMALLOC_ENABLED=true
-  # LD_LIBRARY_PATH='$LD_LIBRARY_PATH:/app/.apt/usr/lib/x86_64-linux-gnu/pulseaudio:/app/.apt/usr/lib/x86_64-linux-gnu/blas:/app/.apt/usr/lib/x86_64-linux-gnu/lapack'
   # WEB_CONCURRENCY=0
 TXT
 run "cp .env.sample .env"
@@ -303,11 +302,9 @@ run "cp .env.sample .env"
 ########################################
 file ".buildpacks", <<~TXT
   https://github.com/Scalingo/jemalloc-buildpack.git
-  https://github.com/Scalingo/apt-buildpack.git
   https://github.com/Scalingo/nodejs-buildpack.git
   https://github.com/Scalingo/ruby-buildpack.git
 TXT
-file "Aptfile", "ffmpeg"
 file "cron.json", <<~JSON
   {
     "jobs": []
