@@ -286,6 +286,7 @@ file ".env.sample", <<~TXT
   SCALEWAY_OS_BUCKET=
   SCALEWAY_OS_ENDPOINT=https://s3.fr-par.scw.cloud
   SCALEWAY_OS_REGION=fr-par
+  SCALEWAY_OS_SECRET_ACCESS_KEY=
 
   SITE_URL=http://localhost:3000
 
